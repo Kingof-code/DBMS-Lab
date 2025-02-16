@@ -1,0 +1,22 @@
+-- Create parent table
+CREATE TABLE Department (
+    DeptID INT PRIMARY KEY,
+    DeptName VARCHAR(50)
+);
+
+-- Create child table with foreign key
+CREATE TABLE Employee (
+    EmpID INT PRIMARY KEY,
+    EmpName VARCHAR(50),
+    DeptID INT,
+    FOREIGN KEY (DeptID) REFERENCES Department(DeptID)
+);
+
+-- Insert data
+INSERT INTO Department VALUES (1, 'CSE'), (2, 'IT');
+INSERT INTO Employee VALUES (101, 'Arun', 1), (102, 'Meera', 2);
+
+-- Retrieve data using JOIN
+SELECT Employee.EmpID, Employee.EmpName, Department.DeptName 
+FROM Employee 
+JOIN Department ON Employee.DeptID = Department.DeptID;
