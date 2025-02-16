@@ -1,0 +1,19 @@
+-- Create database
+CREATE DATABASE StudentDB;
+USE StudentDB;
+
+-- Create table with constraints
+CREATE TABLE Student (
+    RollNo INT PRIMARY KEY,
+    Name VARCHAR(50) NOT NULL,
+    Age INT CHECK(Age >= 18),
+    Email VARCHAR(100) UNIQUE
+);
+
+-- Insert records
+INSERT INTO Student (RollNo, Name, Age, Email) VALUES
+(1, 'Rahul', 20, 'rahul@example.com'),
+(2, 'Priya', 19, 'priya@example.com');
+
+-- Retrieve data
+SELECT * FROM Student;
