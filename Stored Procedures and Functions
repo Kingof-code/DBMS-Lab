@@ -1,0 +1,23 @@
+-- Stored Procedure
+DELIMITER //
+CREATE PROCEDURE GetCustomers()
+BEGIN
+    SELECT * FROM Customers;
+END //
+DELIMITER ;
+
+-- Call Procedure
+CALL GetCustomers();
+
+-- Function
+DELIMITER //
+CREATE FUNCTION GetTotalSales() RETURNS DECIMAL(10,2)
+BEGIN
+    DECLARE total DECIMAL(10,2);
+    SELECT SUM(Amount) INTO total FROM Orders;
+    RETURN total;
+END //
+DELIMITER ;
+
+-- Use function
+SELECT GetTotalSales();
