@@ -1,0 +1,17 @@
+-- Begin Transaction
+START TRANSACTION;
+
+-- Insert Data
+INSERT INTO Orders VALUES (103, 1, 3000);
+
+-- Savepoint
+SAVEPOINT Save1;
+
+-- Insert another record
+INSERT INTO Orders VALUES (104, 2, 5000);
+
+-- Rollback to Savepoint
+ROLLBACK TO Save1;
+
+-- Commit Transaction
+COMMIT;
